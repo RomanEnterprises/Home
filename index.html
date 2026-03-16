@@ -1,161 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roman Enterprises</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roman Enterprises</title>
+    <style>
+        :root{
+            --bg:#0f1724;
+            --muted:#9aa7b2;
+            --accent:#0ea5a4;
+            --card:#0b1220;
+            --glass: rgba(0, 0, 0, 0.04);
+            --radius:14px;
+            --max-width:1200px;
+            --gap:28px;
+            color-scheme: dark;
+        }
 
-<style>
-body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f4f7f5;
-    color:#093c80;
-}
+        html,body{height:100%;}
+        body{
+            margin:0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background:var(--bg);
+            color: #e6eef6;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
 
-header{
-    background:#29b3e1;
-    color:white;
-    padding:12px 24px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+        header{
+            position:fixed;
+            left:0;right:0;top:0;
+            display:flex;align-items:center;justify-content:space-between;
+            padding:18px 36px;
+            backdrop-filter:blur(6px);
+            background: linear-gradient(180deg, rgba(11,17,32,0.6), rgba(11,17,32,0.3));
+            z-index:40;
+        }
 
+        .brand{display:flex;align-items:center;gap:14px}
+        .logo{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#1e3a8a,#06b6d4);box-shadow:0 6px 20px rgba(2,6,23,0.6);}
+        .brand h1{font-size:18px;margin:0;font-weight:600;letter-spacing:0.4px}
 
-/* logo styling */
-.site-logo{ margin:0; padding:0; display:flex; align-items:center; }
-.logo-object{ display:block; width:420px; max-height:90px; height:auto; margin:0; padding:0; background:transparent; border:none; }
+        nav{display:flex;gap:20px;align-items:center}
+        nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px}
+        nav a:hover{color:#fff;background:var(--glass)}
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    font-weight:bold;
-}
+        .hero{
+            min-height:78vh;
+            display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 60px;
+            background:linear-gradient(180deg, rgba(2,6,23,0.1), rgba(2,6,23,0.5)), url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=60');
+            background-size:cover;background-position:center;
+        }
 
-.hero{
-    background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-    url("https://images.unsplash.com/photo-1508780709619-79562169bc64");
-    background-size:cover;
-    background-position:center;
-    color:white;
-    text-align:center;
-    padding:120px 20px;
-}
+        .hero-inner{max-width:900px}
+        .eyebrow{color:var(--accent);font-weight:700;letter-spacing:1px;margin-bottom:12px}
+        .hero h2{font-size:48px;margin:0 0 12px}
+        .hero p{color:var(--muted);font-size:18px;margin:0 0 22px}
 
-.hero h2{
-    font-size:48px;
-    margin-bottom:10px;
-}
+        .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+        .btn{background:#fff;color:#07111a;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700}
+        .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.08);color:#e6eef6}
 
-.hero p{
-    font-size:20px;
-}
+        main{max-width:var(--max-width);margin:40px auto;padding:0 20px}
 
-section{
-    padding:60px 40px;
-    max-width:1000px;
-    margin:auto;
-}
+        .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);align-items:stretch}
+        .panel{
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            padding:34px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(2,6,23,0.6);
+            display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;position:relative;overflow:hidden
+        }
 
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
+        .panel h3{margin:0 0 8px;font-size:20px}
+        .panel p{margin:0 0 16px;color:var(--muted)}
+        .panel .learn{margin-top:auto;display:inline-block}
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:8px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
+        .panel .media{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.12;filter:grayscale(10%)}
 
-.contact-form input,
-.contact-form textarea{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    margin-bottom:15px;
-    border:1px solid #ccc;
-    border-radius:5px;
-}
+        footer{padding:30px 20px;text-align:center;color:var(--muted)}
 
-button{
-    background:#0a3d2e;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:5px;
-    font-size:16px;
-    cursor:pointer;
-}
-
-footer{
-    text-align:center;
-    padding:25px;
-    background:#0a3d2e;
-    color:white;
-}
-</style>
+        @media (max-width:900px){
+            .grid{grid-template-columns:1fr}
+            .hero h2{font-size:36px}
+            header{padding:14px 18px}
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<h1 class="site-logo">
-    <img class="logo-object" src="Roman Environmental Logo.svg" alt="Roman Environmental Logo">
-</h1>
-<nav>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+    <header>
+        <div class="brand">
+            <img class="logo-object" src="Roman Enterprises Logo.svg" alt="Roman Enterprises Logo" style="width:300px;height:auto;border-radius:0px;box-shadow:0 6px 20px rgba(2,6,23,0.6);background:#fff;" />
+        </div>
+        <nav>
+            <a href="rocketry.html">Rocketry</a>
+            <a href="engineering.html">Engineering</a>
+            <a href="environmental.html">Environmental</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<section class="hero">
-<h2>Capturing Carbon. Protecting the Future.</h2>
-<p>Innovative carbon capture solutions for a cleaner planet.</p>
-</section>
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">Engineering the future</div>
+            <h2>Roman Enterprises — Exploration, Innovation, Sustainability</h2>
+            <p>Three divisions working together: Rocketry, Engineering, and Environmental solutions built for scalable impact.</p>
+            <div class="ctas">
+                <a class="btn" href="#rocketry">Explore Rocketry</a>
+                <a class="btn ghost" href="#environmental">See Environmental</a>
+            </div>
+        </div>
+    </section>
 
-<section id="about">
-<h2>About Us</h2>
-<p>
-Roman Environmental is developing carbon capture solutions on a small high school
-scale to help the advancment of carbon capture technology and contribute
-to reduce global emissions. Our mission is to help create small scale carbon
-capture systems that can be scaled to help get to net zero emissions and combat climate change.
-</p>
-</section>
+    <main>
+        <section id="divisions">
+            <div class="grid">
+                <article id="rocketry" class="panel">
+                    <div class="media" style="background-image:url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=60')"></div>
+                    <h3>Roman Rocketry</h3>
+                    <p>Developing high-school scale rocketry and payload systems that teach, inspire, and push the limits of small aerospace.</p>
+                    <a class="learn btn ghost" href="#">Learn more ›</a>
+                </article>
 
-<section id="services">
-<h2>Our Services</h2>
+                <article id="engineering" class="panel">
+                    <div class="media" style="background-image:url('https://images.unsplash.com/photo-1505238680356-667803448bb6?auto=format&fit=crop&w=1600&q=60')"></div>
+                    <h3>Roman Engineering</h3>
+                    <p>Mechanical, electrical, and systems engineering work to turn ideas into reliable prototypes and real-world demonstrations.</p>
+                    <a class="learn btn ghost" href="#">Learn more ›</a>
+                </article>
 
-<div class="services">
+                <article id="environmental" class="panel">
+                    <div class="media" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=60')"></div>
+                    <h3>Roman Environmental</h3>
+                    <p>Small-scale carbon capture and sustainability research focused on practical, scalable solutions to reduce emissions.</p>
+                    <a class="learn btn ghost" href="#">Learn more ›</a>
+                </article>
+            </div>
+        </section>
 
-<div class="card">
-<h3>Small Scale Carbon Capture</h3>
-<p>Systems that capture CO₂ directly from the air on a small scale.</p>
-</div>
+        <section id="about" style="margin-top:36px;padding:28px;background:transparent;border-radius:12px;">
+            <h2 style="margin-top:0">About Roman Enterprises</h2>
+            <p style="color:var(--muted);max-width:900px">Roman Enterprises brings together cross-disciplinary teams to tackle aerospace, engineering, and environmental challenges. We build hands-on projects that educate and produce innovations ready for real-world scaling.</p>
+        </section>
 
-</section>
+        <section id="contact" style="margin-top:32px;padding:28px;background:transparent;border-radius:12px;">
+            <h2 style="margin-top:0">Contact</h2>
+            <p style="color:var(--muted)">For partnership, media, or collaboration inquiries, please email <a href="mailto:info@romanenterprises.example" style="color:var(--accent)">info@romanenterprises.example</a></p>
+        </section>
+    </main>
 
-<section id="contact">
-<h2>Contact Us</h2>
-
-<form class="contact-form">
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Email Address" required>
-<textarea rows="5" placeholder="Your Message"></textarea>
-<button type="submit">Send Message</button>
-</form>
-
-</section>
-
-<footer>
-<p>© 2026 Roman Environmental | Carbon Capture & Sustainability Solutions</p>
-</footer>
+    <footer>
+        <p>© 2026 Roman Enterprises — Roman Rocketry • Roman Engineering • Roman Environmental</p>
+    </footer>
 
 </body>
 </html>
