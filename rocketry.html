@@ -71,10 +71,9 @@
     <h1>Roman Rocketry</h1>
     <p>Developing high-school scale rocketry and payload systems that teach, inspire, and push the limits of small aerospace.</p>
     <section style="margin-top:2em;">
-      <h2>Saturn V1 Rocket</h2>
-      <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
+      <h2 id="saturn-v1-toggle" style="color:#4bb6f4;cursor:pointer;text-decoration:underline;display:inline-block;">Saturn V1 Rocket</h2>
+      <div id="saturn-v1-section" style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;transition:opacity 0.7s, max-height 0.7s;overflow:hidden;max-height:600px;opacity:1;">
         <div style="flex:2;min-width:220px;">
-          <!-- Add your paragraph about Saturn V1 here -->
           <p style="color:#3a5a7a">The Saturn V1 Rocket is a rocket specifically designed for the American Rocket
             Competition (ARC) to provide high school students with a platform to learn about rocketry and aerospace engineering. 
             It is a single-stage, F32T-6 rocket that is designed to reach 750 feet. The Saturn V1 is designed to be easy to build and launch, making it an ideal choice for students who are new to rocketry. 
@@ -82,10 +81,8 @@
             Its main construction is made of 3D printed parts, which allows for modularity and ease of manufacturing. It is a good cheap way to prototype allowing for our club to gain expericence in design
             whilst keeping costs low. The Saturn V1 is a great example of small scale enginuety and is a stepping stone for the future for more complicated rockets to hopefully one day 
             win the ARC competition. We are planned for launch on March 28th. This rocket operates under STEM club at Saint Louis University High School.</p>
-          </p>
         </div>
         <div style="flex:1;min-width:180px;">
-          <!-- Replace src with your Saturn V1 image -->
           <img src="saturn-v1-placeholder.png" alt="Saturn V1 Rocket" style="width:100%;max-width:220px;border-radius:10px;background:#eaf6fb;box-shadow:0 2px 8px rgba(75,182,244,0.10);" />
         </div>
       </div>
@@ -96,9 +93,66 @@
       <li>Payload design and telemetry experiments</li>
       <li>STEM outreach and education</li>
     </ul>
+    <div style="margin-top:24px">
+      <div>
+        <a href="#" class="project-toggle" data-target="v1-3d" style="font-weight:bold;color:#4bb6f4;text-decoration:underline;cursor:pointer;">V1 Fully 3D Printed</a>
+        <div id="v1-3d" class="project-content" style="display:none;transition:opacity 0.7s;opacity:0;margin:12px 0 24px 0;padding:18px;background:#eaf6fb;border-radius:10px;">
+          <p>This project features a rocket that is fully 3D printed, demonstrating advanced additive manufacturing techniques for aerospace applications. The design allows for rapid prototyping and cost-effective production.</p>
+          <img src="v1-3d-placeholder.png" alt="V1 Fully 3D Printed Rocket" style="width:100%;max-width:220px;border-radius:10px;background:#fff;box-shadow:0 2px 8px rgba(75,182,244,0.10);" />
+        </div>
+      </div>
+      <div>
+        <a href="#" class="project-toggle" data-target="mini-final" style="font-weight:bold;color:#4bb6f4;text-decoration:underline;cursor:pointer;">Mini Competition Final Rocket</a>
+        <div id="mini-final" class="project-content" style="display:none;transition:opacity 0.7s;opacity:0;margin:12px 0 24px 0;padding:18px;background:#eaf6fb;border-radius:10px;">
+          <p>The Mini Competition Final Rocket is a compact, high-performance rocket designed for competitive launches. It features a lightweight frame and advanced telemetry for precise flight data collection.</p>
+          <video controls style="width:100%;max-width:220px;border-radius:10px;background:#fff;box-shadow:0 2px 8px rgba(75,182,244,0.10);">
+            <source src="mini-final-rocket.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
   </main>
   <footer>
     <p>© 2026 Roman Enterprises — Roman Rocketry</p>
   </footer>
+  <script>
+    // Saturn V1 toggle (expand/collapse like the other projects)
+    (function() {
+      var title = document.getElementById('saturn-v1-toggle');
+      var section = document.getElementById('saturn-v1-section');
+      var open = true;
+      title.addEventListener('click', function() {
+        if (open) {
+          section.style.opacity = '0';
+          section.style.maxHeight = '0px';
+          setTimeout(function() { section.style.display = 'none'; }, 700);
+          open = false;
+        } else {
+          section.style.display = 'flex';
+          setTimeout(function() {
+            section.style.opacity = '1';
+            section.style.maxHeight = '600px';
+          }, 10);
+          open = true;
+        }
+      });
+    })();
+    // Project toggles
+    document.querySelectorAll('.project-toggle').forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.getElementById(this.dataset.target);
+        var isOpen = target.style.display === 'block';
+        if (!isOpen) {
+          target.style.display = 'block';
+          setTimeout(function() { target.style.opacity = '1'; }, 10);
+        } else {
+          target.style.opacity = '0';
+          setTimeout(function() { target.style.display = 'none'; }, 700);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
