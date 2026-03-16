@@ -10,23 +10,22 @@ body{
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
     background:#f4f7f5;
-    color:#333;
+    color:#093c80;
 }
 
 header{
-    background:#0a3d2e;
+    background:#29b3e1;
     color:white;
-    padding:20px 40px;
+    padding:12px 24px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-header h1{
-    margin:0;
-    font-family: "Times New Roman", Times, serif;
-    font-weight:700;
-}
+
+/* logo styling */
+.site-logo{ margin:0; padding:0; display:flex; align-items:center; }
+.logo-object{ display:block; width:420px; max-height:90px; height:auto; margin:0; padding:0; background:transparent; border:none; }
 
 nav a{
     color:white;
@@ -105,7 +104,9 @@ footer{
 <body>
 
 <header>
-<h1>Roman Environmental</h1>
+<h1 class="site-logo">
+    <img class="logo-object" src="Roman Environmental Logo.svg" alt="Roman Environmental Logo">
+</h1>
 <nav>
 <a href="#about">About</a>
 <a href="#services">Services</a>
@@ -121,9 +122,10 @@ footer{
 <section id="about">
 <h2>About Us</h2>
 <p>
-Roman Environmental develops advanced carbon capture and environmental technologies
-to reduce global emissions. Our mission is to help industries transition toward
-sustainable operations while protecting the planet for future generations.
+Roman Environmental is developing carbon capture solutions on a small high school
+scale to help the advancment of carbon capture technology and contribute
+to reduce global emissions. Our mission is to help create small scale carbon
+capture systems that can be scaled to help get to net zero emissions and combat climate change.
 </p>
 </section>
 
@@ -133,21 +135,10 @@ sustainable operations while protecting the planet for future generations.
 <div class="services">
 
 <div class="card">
-<h3>Industrial Carbon Capture</h3>
-<p>Systems that capture CO₂ directly from industrial emissions before they reach the atmosphere.</p>
+<h3>Small Scale Carbon Capture</h3>
+<p>Systems that capture CO₂ directly from the air on a small scale.</p>
 </div>
 
-<div class="card">
-<h3>Direct Air Capture</h3>
-<p>Technology designed to remove carbon dioxide directly from ambient air.</p>
-</div>
-
-<div class="card">
-<h3>Environmental Consulting</h3>
-<p>Helping companies develop sustainability strategies and reduce their carbon footprint.</p>
-</div>
-
-</div>
 </section>
 
 <section id="contact">
